@@ -2,6 +2,7 @@ package controller;
 
 import interfaces.impls.ElevatorsImpl;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
@@ -52,11 +53,13 @@ public class MainController {
     private void initialize(){
 
         elevators.getBuilding().getElevatorById(Const.FREIGHT_ELEVATOR_ID).getObservatedCurrentPos().addListener(new ChangeListener<Integer>(){
+            @Override
+            public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
 
-
+            }
         });
 
-        elevators.showCurrentPosition(Const.FREIGHT_ELEVATOR_ID);//.add listener - add some method to get listener
+       //elevators.showCurrentPosition(Const.FREIGHT_ELEVATOR_ID);//.add listener - add some method to get listener
         updateCurrentPos();
     }
 
