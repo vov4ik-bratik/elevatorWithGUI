@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.constant.Const;
+import start.Main;
 
 import java.io.IOException;
 
@@ -52,14 +53,14 @@ public class MainController {
     @FXML
     private void initialize(){
 
-        elevators.getBuilding().getElevatorById(Const.FREIGHT_ELEVATOR_ID).getObservatedCurrentPos().addListener(new ChangeListener<Integer>(){
-            @Override
-            public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+        elevators.getBuilding().getElevatorById(Const.FREIGHT_ELEVATOR_ID).getObservatedCurrentPos().
+                addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        MainController.this.updateCurrentPos();
+                    }
+                });
 
-            }
-        });
-
-       //elevators.showCurrentPosition(Const.FREIGHT_ELEVATOR_ID);//.add listener - add some method to get listener
         updateCurrentPos();
     }
 
