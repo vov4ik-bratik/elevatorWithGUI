@@ -1,16 +1,17 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * Created by vs on 16.03.2017.
  */
 public class Cabin1Controller {
 
-    @FXML
-    private TextField cabin1CurrentPos;
     @FXML
     private Button elevator1_1;
     @FXML
@@ -31,5 +32,12 @@ public class Cabin1Controller {
     private Button elevator1_9;
     @FXML
     private Button elevator1_10;
+    @FXML
+    private Button btnGo1;
 
+    public void actionClose(ActionEvent actionEvent) {
+        Node source = (Node)  actionEvent.getSource();
+        Stage stage  = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
 }

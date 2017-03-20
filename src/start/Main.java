@@ -28,16 +28,4 @@ public class Main extends Application {
         launch(args);
     }
 
-//    public void test(){
-//
-//        for (int i = 0; i < 5; i++) {
-//            Building.getInstance().createPassenger();
-//        }
-//
-//    }
-//
-//    public static void test2(){
-//        Building.getInstance().elevatorStart(Building.getInstance().getElevatorById(Const.FREIGHT_ELEVATOR_ID));
-//    }
-
 }
