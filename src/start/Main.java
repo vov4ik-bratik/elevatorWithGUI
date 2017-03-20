@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.constant.Const;
+import model.entities.Building;
 
 public class Main extends Application {
 
@@ -22,6 +24,20 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
         launch(args);
     }
+
+//    public void test(){
+//
+//        for (int i = 0; i < 5; i++) {
+//            Building.getInstance().createPassenger();
+//        }
+//
+//    }
+//
+//    public static void test2(){
+//        Building.getInstance().elevatorStart(Building.getInstance().getElevatorById(Const.FREIGHT_ELEVATOR_ID));
+//    }
+
 }

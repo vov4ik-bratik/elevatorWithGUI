@@ -65,7 +65,7 @@
                         <Insets left="120.0" top="10.0" />
                      </VBox.margin>
                   </ChoiceBox>
-                  <Button fx:id="callElevator1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Elevator1Cabin" prefHeight="44.0" prefWidth="150.0" text="Call elevator">
+                  <Button fx:id="callElevator1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#callElevator" prefHeight="44.0" prefWidth="150.0" text="Call elevator">
                      <font>
                         <Font size="20.0" />
                      </font>

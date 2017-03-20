@@ -1,6 +1,7 @@
 package model.entities;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableIntegerValue;
 import model.constant.Const;
 import model.utilities.RandomDigitsGenerator;
@@ -8,7 +9,8 @@ import model.utilities.RandomDigitsGenerator;
 
 abstract class MovingObjects {
 
-    private IntegerProperty currentPos;
+    private IntegerProperty currentPos = new SimpleIntegerProperty(0);
+
     private int destinationPos;
 
     abstract public void moveUp();
@@ -17,7 +19,7 @@ abstract class MovingObjects {
 
     public MovingObjects() {
 
-        currentPos.setValue(RandomDigitsGenerator.generator(Const.BUILDING_FIRST_FLOORS, Const.BUILDING_LAST_FLOORS));;
+        currentPos.set(RandomDigitsGenerator.generator(Const.BUILDING_FIRST_FLOORS, Const.BUILDING_LAST_FLOORS));;
         destinationPos = currentPos.get();
     }
 
@@ -31,7 +33,7 @@ abstract class MovingObjects {
     }
 
     public void setCurrentPos(int currentPos) {
-        this.currentPos.setValue(currentPos);
+        this.currentPos.set(currentPos);
     }
 
     public void setDestinationPos(int destinationPos) {

@@ -3,6 +3,7 @@ package controller;
 import interfaces.impls.ElevatorsImpl;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
@@ -53,24 +54,49 @@ public class MainController {
     @FXML
     private void initialize(){
 
+        updateCurrentPos(Const.FREIGHT_ELEVATOR_ID);
+        updateCurrentPos(Const.FIRST_PASSENGER_ELEVATOR_ID);
+        updateCurrentPos(Const.SECOND_PASSENGER_ELEVATOR_ID);
+
         elevators.getBuilding().getElevatorById(Const.FREIGHT_ELEVATOR_ID).getObservatedCurrentPos().
                 addListener(new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                        MainController.this.updateCurrentPos();
+                        updateCurrentPos(Const.FREIGHT_ELEVATOR_ID);
+                        updateCurrentPos(Const.FIRST_PASSENGER_ELEVATOR_ID);
+                        updateCurrentPos(Const.SECOND_PASSENGER_ELEVATOR_ID);
                     }
                 });
 
-        updateCurrentPos();
+
+        startPosSet1.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5, 6 , 7, 8, 9, 10));
+        startPosSet1.setValue(1);
+        startPosSet2.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5, 6 , 7, 8, 9, 10));
+        startPosSet2.setValue(1);
+        startPosSet3.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5, 6 , 7, 8, 9, 10));
+        startPosSet3.setValue(1);
     }
 
-    private void updateCurrentPos(){
-        currentPos1.setText("Current position " + elevators.showCurrentPosition(Const.FREIGHT_ELEVATOR_ID));
-        currentPos2.setText("Current position " + elevators.showCurrentPosition(Const.FIRST_PASSENGER_ELEVATOR_ID));
-        currentPos3.setText("Current position " + elevators.showCurrentPosition(Const.SECOND_PASSENGER_ELEVATOR_ID));
+    private void updateCurrentPos(int elevatorId){
+        currentPos1.setText("Current position " + elevators.showCurrentPosition(elevatorId));
     }
 
+    public void callElevator(ActionEvent actionEvent) {
 
+        Object source = actionEvent.getSource();
+
+        if(!(source instanceof Button)){
+            return;
+        }
+
+        Button clickedButton = (Button)source;
+
+        int selectedFloor = startPosSet1.getValue();
+
+        System.out.println("start floor " + selectedFloor);
+
+        Elevator1Cabin(actionEvent);
+    }
 
     public void elevatorCabinSetting(ActionEvent actionEvent, Stage stage, String fxmlLoader) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxmlLoader));
@@ -93,7 +119,6 @@ public class MainController {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     public void Elevator2Cabin(ActionEvent actionEvent){
