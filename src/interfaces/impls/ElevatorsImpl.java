@@ -23,8 +23,10 @@ public class ElevatorsImpl implements interfaces.Elevators {
     }
 
     @Override
-    public void callElevator(Elevator elevator) {
+    public void callElevator(int elevatorId, int destination) {
+        building.createPassenger(elevatorId, destination);
 
+        building.elevatorStart(building.getElevatorById(elevatorId));
     }
 
     @Override

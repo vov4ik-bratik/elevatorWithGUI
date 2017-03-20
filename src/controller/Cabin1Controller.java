@@ -38,6 +38,6 @@ public class Cabin1Controller {
     public void actionClose(ActionEvent actionEvent) {
         Node source = (Node)  actionEvent.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
+        stage.hide();
     }
 }

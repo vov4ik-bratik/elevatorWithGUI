@@ -11,7 +11,7 @@ public interface Elevators {
 
     void showStatus (Elevator elevator);
 
-    void callElevator (Elevator elevator);
+    void callElevator (int elevatorId, int destination);
 
     void setDestination(Elevator elevator);
 }

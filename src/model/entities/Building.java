@@ -29,9 +29,9 @@ public class Building {
         return elevatorsWithPassengers;
     }
 
-    public void createPassenger(){
+    public void createPassenger(int elevatorId, int destination){
 
-        Passenger passenger = new Passenger();
+        Passenger passenger = new Passenger(elevatorId, destination);
         System.out.println(passenger + "\n");
 
         getPassengerList(passenger.getElevatorId()).add(passenger);

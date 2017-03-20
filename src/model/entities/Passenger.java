@@ -25,13 +25,13 @@ public class Passenger extends MovingObjects{
     }
 
 
-    public Passenger (int startPos){
+    public Passenger (int elevatorId, int destination){
 
-        super.setCurrentPos(startPos);
-        super.setDestinationPos(startPos);
+        super.setCurrentPos(destination);
+        super.setDestinationPos(destination);
 
         weight = RandomDigitsGenerator.generator(Const.PASSENGER_MIN_WEIGHT, Const.PASSENGER_MAX_WEIGHT);
-        elevatorId = RandomDigitsGenerator.generator(Const.FREIGHT_ELEVATOR_ID, Const.SECOND_PASSENGER_ELEVATOR_ID);
+        this.elevatorId = elevatorId;
     }
 
     public void moveUp(){
